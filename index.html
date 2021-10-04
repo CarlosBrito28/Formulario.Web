@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Formulario de usuario</title>
+  </head>
+  <body>
+    <body class="bg-light">
+        <div class="container">
+      <div class="py-5 text-center">
+        <h2>Empresa Importante</h2>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h4 class="mb-3">Registre sus datos</h4>
+          <form id="miformulario" action="guardar.html" method="GET">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Nombre es requerido.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="apellido">Apellido</label>
+                <input type="text" class="form-control" name="apellido" id="apellido" placeholder="" value="" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="run">Run</label>
+                <input type="text" class="form-control" name="run" id="run" placeholder="26077241-8" value="" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="edad">Edad</label>
+                <input type="number" class="form-control" name="edad" id="edad" placeholder="" value="" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="estadoCivil">Estado Civil</label>
+                <select class="custom-select d-block w-100" name="estadoCivil" id="estadoCivil" required>
+                  <option>Casado</option>
+                  <option>Soltero</option>
+                  <option>Viudo</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="sexo">Sexo</label>
+                <select class="custom-select d-block w-100" name="sexo" id="sexo" required>
+                  <option>Hombre</option>
+                  <option>Mujer</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="metodoLocomocion">Método de Locomoción</label>
+                <select class="custom-select d-block w-100" name="metodoLocomocion" id="metodoLocomocion" required>
+                  <option>Auto</option>
+                  <option>Moto</option>
+                  <option>Micro</option>
+                  <option>Metro</option>
+                  <option>Taxi</option>
+                </select>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">
+                Guardar Datos
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+    <script>
+        $(document).ready(function () {
+            var validator = $('#miformulario').validate({ 
+                rules: {
+                    nombre: {
+                        required: true,
+                        minlength: 5
+                    },
+                    apellido: {
+                        required: true,
+                        minlength: 5
+                    },
+                    run: {
+                        required: true,
+                        minlength: 10
+                    },
+                    edad: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    nombre: {
+                        required: "Debe ingresar un nombre",
+                        minlength: jQuery.validator.format("Ingrese minimo {0} caracteres")
+                    },
+                    apellido: {
+                        required: "Debe ingresar un apellido",
+                        minlength: jQuery.validator.format("Ingrese minimo {0} caracteres")
+                    },
+                    run: {
+                        required: "Debe ingresar un run",
+                        minlength: jQuery.validator.format("Ingrese minimo {0} caracteres")
+                    },
+                    edad: {
+                        required: "Debe ingresar una edad"
+                    }
+                }
+            });
+            
+        });
+    </script>
+  </body>
+</html>
